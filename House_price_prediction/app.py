@@ -1,9 +1,11 @@
 import streamlit as st
 import pickle
 import pandas as pd
+from pathlib import Path
 
-# load train model
-with open('House_Price_Prediction.pkl','rb') as file:
+Base_Dir = Path(__file__).resolve().parent
+model_path = Base_Dir/"House_Price_Prediction.pkl"
+with open(model_path,'rb') as file:
     regressor = pickle.load(file)
 
 # title
